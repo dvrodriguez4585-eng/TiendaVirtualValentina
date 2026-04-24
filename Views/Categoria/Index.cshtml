@@ -1,0 +1,29 @@
+﻿@model List<TiendaVirtualValentina.Models.Categoria>
+
+<h2>Lista de Categorias</h2>
+
+<a class="btn btn-success" href="/Categoria/Create">Nuevo Producto</a>
+<br><br>
+<table class="table table-stripes table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var categoria in Model)
+        {
+            <tr>
+                <td>@categoria.Nombre</td>
+                <td>@categoria.Descripcion</td>
+                <td>
+                    <a class="btn btn-warning btn-sm" href="/Categoria/Edit/@categoria.Id">Editar</a>
+
+                    <a class="btn btn-danger btn-sm" href="/Categoria/Delete/@categoria.Id">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
