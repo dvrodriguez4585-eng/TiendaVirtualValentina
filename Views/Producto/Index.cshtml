@@ -1,9 +1,6 @@
-﻿@model List<TiendaVirtualValentina.Models.Producto>
-
-<h2>Lista de Productos</h2>
-
-<a class="btn btn-success" href="/Producto/Create">Nuevo Producto</a>
-<br><br>
+﻿<a class="btn btn-success" href="/Producto/Create">Nuevo Producto</a>
+<br>
+<br>
 <table class="table table-stripes table-bordered">
     <thead class="table-dark">
         <tr>
@@ -25,10 +22,9 @@
                 <td>@item.Categoria?.Nombre</td>
 
                 <td>
-                    <a class="btn btn-warning btn-sm" href="/Producto/Edit/@item.Id">Editar</a>
-
-                    @if(Context.Session.GetString("Rol") == "Admin")
+                    @if (Context.Session.GetString("Rol") == "Admin")
                     {
+                        <a class="btn btn-warning btn-sm" href="/Producto/Edit/@item.Id">Editar</a>
                         <a class="btn btn-danger btn-sm" href="/Producto/Delete/@item.Id">Eliminar</a>
                     }
                 </td>

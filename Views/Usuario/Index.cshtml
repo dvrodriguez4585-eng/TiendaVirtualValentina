@@ -2,9 +2,9 @@
 
 <h2>Lista de Usuarios</h2>
 
-
 <a class="btn btn-success" href="/Usuario/Create"> Nuevo Usuario </a>
-<br><br>
+<br>
+<br>
 <table class="table table-stripes table-bordered">
     <thead class="table-dark">
         <tr>
@@ -26,9 +26,11 @@
                 <td>@item.celular</td>
 
                 <td>
-                    <a class="btn btn-warning btn-sm" href="/Usuario/Edit/@item.Id">Editar</a>
-
-                    <a class="btn btn-danger btn-sm" href="/Usuario/Delete/@item.Id">Eliminar</a>
+                    @if (Context.Session.GetString("Rol") == "Admin")
+                    {
+                        <a class="btn btn-warning btn-sm" href="/Usuario/Edit/@item.Id">Editar</a>
+                        <a class="btn btn-danger btn-sm" href="/Usuario/Delete/@item.Id">Eliminar</a>
+                    }
                 </td>
             </tr>
         }
