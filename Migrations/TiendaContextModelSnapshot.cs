@@ -79,6 +79,14 @@ namespace TiendaVirtualValentina.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("Celular")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Clave")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Correo")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -88,10 +96,6 @@ namespace TiendaVirtualValentina.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Rol")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("celular")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

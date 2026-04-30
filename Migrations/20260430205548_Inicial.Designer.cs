@@ -11,8 +11,8 @@ using TiendaVirtualValentina.Data;
 namespace TiendaVirtualValentina.Migrations
 {
     [DbContext(typeof(TiendaContext))]
-    [Migration("20260420052634_CategoriaBD")]
-    partial class CategoriaBD
+    [Migration("20260430205548_Inicial")]
+    partial class Inicial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,7 +24,7 @@ namespace TiendaVirtualValentina.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity(".Models.Categoria", b =>
+            modelBuilder.Entity("TiendaVirtualValentina.Models.Categoria", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -45,7 +45,7 @@ namespace TiendaVirtualValentina.Migrations
                     b.ToTable("Categorias");
                 });
 
-            modelBuilder.Entity(".Models.Producto", b =>
+            modelBuilder.Entity("TiendaVirtualValentina.Models.Producto", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -74,13 +74,21 @@ namespace TiendaVirtualValentina.Migrations
                     b.ToTable("Productos");
                 });
 
-            modelBuilder.Entity(".Models.Usuario", b =>
+            modelBuilder.Entity("TiendaVirtualValentina.Models.Usuario", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Celular")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Clave")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Correo")
                         .IsRequired()
@@ -94,18 +102,14 @@ namespace TiendaVirtualValentina.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("celular")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
                     b.ToTable("Usuarios");
                 });
 
-            modelBuilder.Entity(".Models.Producto", b =>
+            modelBuilder.Entity("TiendaVirtualValentina.Models.Producto", b =>
                 {
-                    b.HasOne(".Models.Categoria", "Categoria")
+                    b.HasOne("TiendaVirtualValentina.Models.Categoria", "Categoria")
                         .WithMany()
                         .HasForeignKey("CategoriaId")
                         .OnDelete(DeleteBehavior.Cascade)
