@@ -26,7 +26,7 @@
                 <td>@item.Celular</td>
 
                 <td>
-                    @if (Context.Session.GetString("Rol") == "Administrador")
+                    @if (Context.Session.GetString("Rol") == "Administradoristrador")
                     {
                         <a class="btn btn-warning btn-sm" href="/Usuario/Edit/@item.Id">Editar</a>
                         <a class="btn btn-danger btn-sm" href="/Usuario/Delete/@item.Id">Eliminar</a>

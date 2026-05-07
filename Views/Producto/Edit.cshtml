@@ -4,7 +4,17 @@
 
     <h2>Editar Producto</h2>
 
-    <form asp-action="Edit" method="post">
+    <form asp-action="Edit" method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+        <div class="mb-3">
+            <label>Imagen actual</label><br />
+            <img src="@Model.ImagenUrl" width="150" class="mb-2" />
+        </div>
+
+        <div class="mb-3">
+            <label>Nueva imagen (opcional)</label>
+            <input type="file" name="imagen" class="form-control" />
+        </div>
 
         <input type="hidden" asp-for="Id" />
 

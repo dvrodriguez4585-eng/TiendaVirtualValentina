@@ -1,31 +1,81 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Inicio";
 }
-<div class="text-center">
-    <br><br>
-    <h1 class="display-4">Bienvenido a Tienda Virtual </h1>
-    <br><br>
-    <div class="card-group">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Usuarios</h5>
-                <p class="card-text">Todos los usuarios registrados en la tienda</p>
-                <a href="/Usuario" class="btn btn-outline-primary">Ir a Usuarios</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Categorías</h5>
-                <p class="card-text">Las categorías existentes dentro de la tienda</p>
-                <a href="/Categoria" class="btn btn-outline-primary">Ir a Categorías</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Productos</h5>
-                <p class="card-text">Todos los productos de la tienda</p>
-                <a href="/Producto" class="btn btn-outline-primary">Ir a productos</a>
-            </div>
-        </div>
+
+<div class="container mt-5">
+
+    <div class="text-center mb-5">
+        <h1 class="display-4 fw-bold text-primary">
+            Bienvenido a Tienda Virtual Valentina
+        </h1>
+
+        <p class="lead text-secondary">
+            Administra usuarios, categorías y productos de manera rápida y sencilla.
+        </p>
     </div>
+
+
+    <div class="row g-4 justify-content-center">
+
+   
+        <div class="col-md-4">
+            <div class="card shadow-lg border-0 rounded-4 h-100 text-center p-4">
+
+                <div class="card-body">
+                    <h3 class="fw-bold text-dark">Usuarios</h3>
+
+                    <p class="text-muted">
+                        Gestiona todos los usuarios registrados.
+                    </p>
+
+                    <a href="/Usuario"
+                       class="btn btn-primary px-4 rounded-pill">
+                        Ir a Usuarios
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        
+        <div class="col-md-4">
+            <div class="card shadow-lg border-0 rounded-4 h-100 text-center p-4">
+
+                <div class="card-body">
+                    <h3 class="fw-bold text-dark">Categorías</h3>
+
+                    <p class="text-muted">
+                        Administra las categorías de la tienda.
+                    </p>
+
+                    <a href="/Categoria"
+                       class="btn btn-success px-4 rounded-pill">
+                        Ir a Categorías
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-lg border-0 rounded-4 h-100 text-center p-4">
+
+                <div class="card-body">
+                    <h3 class="fw-bold text-dark">Productos</h3>
+
+                    <p class="text-muted">
+                        Visualiza y administra los productos.
+                    </p>
+
+                    <a href="/Producto"
+                       class="btn btn-danger px-4 rounded-pill">
+                        Ir a Productos
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
 </div>

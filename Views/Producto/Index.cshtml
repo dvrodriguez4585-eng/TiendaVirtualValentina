@@ -1,34 +1,50 @@
-﻿<a class="btn btn-success" href="/Producto/Create">Nuevo Producto</a>
-<br>
-<br>
-<table class="table table-stripes table-bordered">
-    <thead class="table-dark">
-        <tr>
-            <th>Nombre</th>
-            <th>Precio</th>
-            <th>Stock</th>
-            <th>Categoría</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
+﻿@model List<TiendaVirtualValentina.Models.Producto>
 
-    <tbody>
+<div class="container mt-4">
+
+    <h2 class="mb-4 text-center">Productos</h2>
+
+    <a class="btn btn-success mb-3" href="/Producto/Create">
+        + Nuevo Producto
+    </a>
+
+    <div class="row">
+
         @foreach (var item in Model)
         {
-            <tr>
-                <td>@item.Nombre</td>
-                <td>@item.Precio</td>
-                <td>@item.Stock</td>
-                <td>@item.Categoria?.Nombre</td>
+            <div class="col-md-3 mb-4">
 
-                <td>
-                    @if (Context.Session.GetString("Rol") == "Admin")
-                    {
-                        <a class="btn btn-warning btn-sm" href="/Producto/Edit/@item.Id">Editar</a>
-                        <a class="btn btn-danger btn-sm" href="/Producto/Delete/@item.Id">Eliminar</a>
-                    }
-                </td>
-            </tr>
+                <div class="card h-100 shadow">
+
+                    <img src="@item.ImagenUrl"
+                         class="card-img-top"
+                         style="height:200px; object-fit:cover;" />
+
+                    <div class="card-body">
+
+                        <h5 class="card-title">@item.Nombre</h5>
+
+                        <p class="card-text">
+                            Precio: $@item.Precio <br />
+                            Stock: @item.Stock <br />
+                            Categoria: @item.Categoria?.Nombre
+                        </p>
+
+                        <a href="/Producto/Edit/@item.Id" class="btn btn-warning btn-sm">Editar</a>
+
+                        <form asp-action="Delete" asp-route-id="@item.Id" method="post" style="display:inline">
+                            <button type="submit" class="btn btn-danger btn-sm">
+                                Eliminar
+                            </button>
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
         }
-    </tbody>
-</table>
+
+    </div>
+
+</div>
